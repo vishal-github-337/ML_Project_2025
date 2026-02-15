@@ -23,3 +23,14 @@ We implemented 6 classification models. The evaluation metrics on the test set a
 | **Random Forest** | 0.9916 | 0.9995 | 0.9920 | 0.9913 | 0.9916 | 0.9833 |
 | **XGBoost** | 0.9936 | 0.9997 | 0.9939 | 0.9933 | 0.9936 | 0.9871 |
 
+### Observations
+
+| ML Model Name | Observation about model performance |
+| :--- | :--- |
+| **Logistic Regression** | Performs well with high AUC, serving as a strong baseline; balanced precision and recall, fast inference and easy to interpret. |
+| **Decision Tree** | GGood accuracy but lower AUC and unstable probability estimates; interpretable but prone to overfitting and less well-calibrated. |
+| **kNN** | Comparable performance to Logistic Regression with high recall; effective but inference is costly at scale and sensitive to feature scaling. |
+| **Naive Bayes** | VVery high recall but noticeably lower precision (overpredicts positives); extremely fast and simple but relies on strong independence assumptions. |
+| **Random Forest** |  ARobust top performer with high accuracy, AUC and balanced precision/recall; reliable, well-calibrated probabilities and good default choice. |
+| **XGBoost** | **Best Performer**.| 
+Best recall and highest AUC overall; very accurate and efficient with tuning, though more complex to interpret and tune compared to simpler models. |

@@ -32,5 +32,5 @@ We implemented 6 classification models. The evaluation metrics on the test set a
 | **kNN** | Comparable performance to Logistic Regression with high recall; effective but inference is costly at scale and sensitive to feature scaling. |
 | **Naive Bayes** | VVery high recall but noticeably lower precision (overpredicts positives); extremely fast and simple but relies on strong independence assumptions. |
 | **Random Forest** |  ARobust top performer with high accuracy, AUC and balanced precision/recall; reliable, well-calibrated probabilities and good default choice. |
-| **XGBoost** | **Best Performer**.| 
-Best recall and highest AUC overall; very accurate and efficient with tuning, though more complex to interpret and tune compared to simpler models. |
+| **XGBoost** **Best Performer**.| 
+| Best recall and highest AUC overall; very accurate and efficient with tuning, though more complex to interpret and tune compared to simpler models. |

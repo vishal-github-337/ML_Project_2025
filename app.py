@@ -127,5 +127,5 @@ else:
        'High_BP', 'High_Cholesterol', 'Diabetes', 'Smoking', 'Obesity',
        'Sedentary_Lifestyle', 'Family_History', 'Chronic_Stress', 'Gender',
        'Age'.
-    - Must contain target column: `He` (for evaluation metrics).
+    - Must contain target column: `Heart_Risk` (for evaluation metrics).
     """)

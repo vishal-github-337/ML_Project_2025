@@ -1,4 +1,4 @@
-# Heart Disease Risk Assesment
+# Heart Disease Risk Predictor
 
 # a. Problem Statement
 Provide a clinical-screening tool to identify individuals at risk of heart disease from routine health features. The primary objective is to maximize sensitivity (RECALL) to minimize missed positive cases, while keeping secondary attention on specificity and precision to limit unnecessary follow-ups.

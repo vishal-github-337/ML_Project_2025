@@ -241,62 +241,28 @@ else:
 specificity = (tn / (tn + fp)) if (tn + fp) > 0 else 0.0
 
 # -------------------------
-# Top metric cards (recall emphasized)
+# Top metric cards (ordered)
 # -------------------------
 st.markdown("### Performance summary")
-cols = st.columns([1.8, 1, 1, 1, 1])
-with cols[0]:
-    st.markdown(
+auc_text = f"{auc_val:.4f}" if auc_val is not None else "N/A"
+
+cols = st.columns(6)
+metrics = [
+    ("Accuracy", f"{acc:.4f}", "Overall accuracy"),
+    ("AUC", auc_text, "ROC AUC (if probabilities)"),
+    ("Precision", f"{prec:.4f}", "Positive predictive value"),
+    ("Recall", f"{rec:.4f}", "Sensitivity — prioritized"),
+    ("F1 Score", f"{f1:.4f}", "Harmonic mean of precision & recall"),
+    ("MCC", f"{mcc:.4f}", "Matthews correlation coefficient")
+]
+
+for c, (title, value, desc) in zip(cols, metrics):
+    c.markdown(
         f"""
         <div class="metric-card">
-            <h4 style="color:#e63946; margin:0;">🔴 RECALL</h4>
-            <h2 style="color:#e63946; margin:0;">{rec:.4f}</h2>
-            <div class="metric-small">Sensitivity — detected positives / actual positives</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-with cols[1]:
-    st.markdown(
-        f"""
-        <div class="metric-card">
-            <h4 style="color:#7b1f2f; margin:0;">Specificity</h4>
-            <h3 style="margin:0;color:#7b1f2f;">{specificity:.4f}</h3>
-            <div class="metric-small">True negative rate</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-with cols[2]:
-    st.markdown(
-        f"""
-        <div class="metric-card">
-            <h4 style="margin:0;">Precision</h4>
-            <h3 style="margin:0;">{prec:.4f}</h3>
-            <div class="metric-small">Positive predictive value</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-with cols[3]:
-    st.markdown(
-        f"""
-        <div class="metric-card">
-            <h4 style="margin:0;">F1</h4>
-            <h3 style="margin:0;">{f1:.4f}</h3>
-            <div class="metric-small">Harmonic mean of precision & recall</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-with cols[4]:
-    auc_text = f"{auc_val:.4f}" if auc_val is not None else "N/A"
-    st.markdown(
-        f"""
-        <div class="metric-card">
-            <h4 style="margin:0;">AUC</h4>
-            <h3 style="margin:0;">{auc_text}</h3>
-            <div class="metric-small">ROC AUC (if probabilities)</div>
+            <h4 style="margin:0;">{title}</h4>
+            <h2 style="margin:0;">{value}</h2>
+            <div class="metric-small">{desc}</div>
         </div>
         """,
         unsafe_allow_html=True,
